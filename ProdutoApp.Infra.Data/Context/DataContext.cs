@@ -13,7 +13,7 @@ namespace ProdutoApp.Infra.Data.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("BDSistemaProduto");   
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ProdutoAppBD;Integrated Security=True;");   
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

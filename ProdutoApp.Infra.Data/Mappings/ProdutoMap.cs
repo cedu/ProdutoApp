@@ -13,19 +13,22 @@ namespace ProdutoApp.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
+            builder.ToTable("PRODUTO");
+
             //Chave Primária
             builder.HasKey(p => p.Id);
 
             //mapeamento da entidade
-            builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
-            builder.Property(p => p.Descricao).HasMaxLength(250).IsRequired();
-            builder.Property(p => p.DataHora).IsRequired();
-            builder.Property(p => p.Preco).HasColumnType("decimal(10, 2)").IsRequired();
-            builder.Property(p => p.Quantidade).IsRequired();
-            builder.Property(p => p.Estado).IsRequired();
-            builder.Property(p => p.CadastradoEm).IsRequired();
-            builder.Property(p => p.UltimaAtualizacaoEm).IsRequired();
-            builder.Property(p => p.Ativo).IsRequired();
+            builder.Property(p => p.Id).HasColumnName("ID");
+            builder.Property(p => p.Nome).HasColumnName("NOME").HasMaxLength(100).IsRequired();
+            builder.Property(p => p.Descricao).HasColumnName("DESCRICAO").HasMaxLength(250).IsRequired();
+            builder.Property(p => p.DataHora).HasColumnName("DATAHORA").IsRequired();
+            builder.Property(p => p.Preco).HasColumnName("PRECO").HasColumnType("decimal(10, 2)").IsRequired();
+            builder.Property(p => p.Quantidade).HasColumnName("QUANTIDADE").IsRequired();
+            builder.Property(p => p.Estado).HasColumnName("ESTADO").IsRequired();
+            builder.Property(p => p.CadastradoEm).HasColumnName("CADASTRADOEM").IsRequired();
+            builder.Property(p => p.UltimaAtualizacaoEm).HasColumnName("ULTIMAATUALIZACAOEM").IsRequired();
+            builder.Property(p => p.Ativo).HasColumnName("ATIVO").IsRequired();
         }
     }
 }
